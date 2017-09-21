@@ -114,7 +114,7 @@ flow_entry_matches(struct flow_entry *entry, struct ofl_msg_flow_mod *mod, bool 
 	}
     
     if (strict) {
-        return ( (entry->stats->priority == mod->priority) &&
+        return ( (entry->stats->priority123 == mod->priority123) &&
                  match_std_strict((struct ofl_match *)mod->match,
                                 (struct ofl_match *)entry->stats->match));
     } else {
@@ -125,7 +125,7 @@ flow_entry_matches(struct flow_entry *entry, struct ofl_msg_flow_mod *mod, bool 
 
 bool
 flow_entry_overlaps(struct flow_entry *entry, struct ofl_msg_flow_mod *mod) {
-        return (entry->stats->priority == mod->priority &&
+        return (entry->stats->priority123 == mod->priority123 &&
             (mod->out_port == OFPP_ANY || flow_entry_has_out_port(entry, mod->out_port)) &&
             (mod->out_group == OFPG_ANY || flow_entry_has_out_group(entry, mod->out_group)) &&
             match_std_overlap((struct ofl_match *)entry->stats->match,
@@ -341,7 +341,7 @@ flow_entry_create(struct datapath *dp, struct flow_table *table, struct ofl_msg_
     entry->stats->table_id         = mod->table_id;
     entry->stats->duration_sec     = 0;
     entry->stats->duration_nsec    = 0;
-    entry->stats->priority         = mod->priority;
+    entry->stats->priority123         = mod->priority123;
     entry->stats->idle_timeout     = mod->idle_timeout;
     entry->stats->hard_timeout     = mod->hard_timeout;
     entry->stats->flags            = mod->flags;

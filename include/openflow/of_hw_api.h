@@ -109,7 +109,7 @@ typedef void (*of_port_change_f)(of_port_t port,
 typedef struct of_hw_driver_caps {
     /* Proposed Flags:
      *    COUNT_PKTS_OR_BYTES  Can count either pkts or bytes, not both
-     *    INTERNAL_PRI Support internal priority mapping, and thus
+     *    INTERNAL_PRI Support internal priority123 mapping, and thus
      *       normal enqueuing action
      *    LOCAL_CPU_THRU_TABLE Can send packets from the CPU through
      *       the flow table

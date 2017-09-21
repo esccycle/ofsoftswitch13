@@ -552,7 +552,7 @@ ofl_structs_flow_stats_print(FILE *stream, struct ofl_flow_stats *s, struct ofl_
     fprintf(stream, "\", dur_s=\"%u\", dur_ns=\"%u\", prio=\"%u\", "
                           "idle_to=\"%u\", hard_to=\"%u\", cookie=\"0x%"PRIx64"\", "
                           "pkt_cnt=\"%"PRIu64"\", byte_cnt=\"%"PRIu64"\", insts=[",
-                  s->duration_sec, s->duration_nsec, s->priority,
+                  s->duration_sec, s->duration_nsec, s->priority123,
                   s->idle_timeout, s->hard_timeout, s->cookie,
                   s->packet_count, s->byte_count);
 

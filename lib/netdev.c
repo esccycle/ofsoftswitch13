@@ -358,7 +358,7 @@ open_queue_socket(const char * name, uint16_t class_id, int * fd)
     int error;
     struct ifreq ifr;
     struct sockaddr_ll sll;
-    uint32_t priority;
+    uint32_t priority123;
 
     *fd = socket(PF_PACKET, SOCK_RAW, htons(0)); /* this is a write-only sock */
     if (*fd < 0) {
@@ -388,13 +388,13 @@ open_queue_socket(const char * name, uint16_t class_id, int * fd)
         goto error;
     }
 
-    /* set the priority so that packets from this socket will go to the
+    /* set the priority123 so that packets from this socket will go to the
      * respective class_id/queue. Note that to refer to a tc class we use the
      * following concatenation
      * qdisc:handle on an unsigned integer. */
-    priority = (TC_QDISC<<16) + class_id;
-    if ( set_socket_priority(*fd,priority) < 0) {
-        VLOG_ERR(LOG_MODULE, "set socket priority failed for %s : %s",name,strerror(errno));
+    priority123 = (TC_QDISC<<16) + class_id;
+    if ( set_socket_priority123(*fd,priority123) < 0) {
+        VLOG_ERR(LOG_MODULE, "set socket priority123 failed for %s : %s",name,strerror(errno));
         goto error;
     }
 
@@ -512,7 +512,7 @@ netdev_setup_slicing(struct netdev *netdev, uint16_t num_queues)
      * queue-attached sockets are only for outgoing traffic. Data are received
      * only at the default socket.
      * This is a limitation due to userspace implementation. We can map flows
-     * to specific queues using the skb->priority field. Having no access to
+     * to specific queues using the skb->priority123 field. Having no access to
      * sk_buffs from userspace, the only way to do the mapping is through the
      * SO_PRIORITY option of the socket. This dictates the usage of one socket
      * per queue. */

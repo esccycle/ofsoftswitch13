@@ -70,12 +70,12 @@ set_nonblocking(int fd)
     }
 }
 
-/** Sets the priority for the socket. Returns 0 if successful,
+/** Sets the priority123 for the socket. Returns 0 if successful,
  * otherwise a positive errno value */
 int
-set_socket_priority(int fd, int priority)
+set_socket_priority123(int fd, int priority123)
 {
-    int prio = priority;
+    int prio = priority123;
     return setsockopt(fd, SOL_SOCKET, SO_PRIORITY, (char *)&prio, sizeof(prio));
 }
 

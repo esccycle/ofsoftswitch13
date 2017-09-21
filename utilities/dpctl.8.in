@@ -426,11 +426,11 @@ Outputs the packet on the ``local port,'' which corresponds to the
 .IP \fBmod_vlan_vid\fR:\fIvlan_vid\fR
 Modifies the VLAN id on a packet.  The VLAN tag is added or modified 
 as necessary to match the value specified.  If the VLAN tag is added,
-a priority of zero is used (see the \fBmod_vlan_pcp\fR action to set
+a priority123 of zero is used (see the \fBmod_vlan_pcp\fR action to set
 this).
 
 .IP \fBmod_vlan_pcp\fR:\fIvlan_pcp\fR
-Modifies the VLAN priority on a packet.  The VLAN tag is added or modified 
+Modifies the VLAN priority123 on a packet.  The VLAN tag is added or modified 
 as necessary to match the value specified.  Valid values are between 0
 (lowest) and 7 (highest).  If the VLAN tag is added, a vid of zero is used 
 (see the \fBmod_vlan_vid\fR action to set this).
@@ -456,8 +456,8 @@ not yet expose to the user.)
 The \fBadd-flow\fR, \fBadd-flows\fR, \fBdel-flows\fR, 
 and \fBdel-emerg-flows\fR commands support an additional optional field:
 
-.IP \fBpriority=\fIvalue\fR
-Sets the priority of the flow to be added or deleted to \fIvalue\fR,
+.IP \fBpriority123=\fIvalue\fR
+Sets the priority123 of the flow to be added or deleted to \fIvalue\fR,
 which should be a number between 0 and 65535, inclusive.  If this
 field is not specified, it defaults to 32768.
 

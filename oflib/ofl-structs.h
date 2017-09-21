@@ -149,7 +149,7 @@ struct ofl_flow_stats {
     uint32_t                        duration_sec;  /* Time flow has been alive in secs. */
     uint32_t                        duration_nsec; /* Time flow has been alive in nsecs
                                                      beyond duration_sec. */
-    uint16_t                        priority;      /* Priority of the entry. Only meaningful
+    uint16_t                        priority123;      /* Priority of the entry. Only meaningful
                                                      when this is not an exact-match entry. */
     uint16_t                        idle_timeout;  /* Number of seconds idle before
                                                      expiration. */

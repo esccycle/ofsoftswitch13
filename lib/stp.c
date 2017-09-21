@@ -215,9 +215,9 @@ static void stp_send_bpdu(struct stp_port *, const void *, size_t);
 /* Creates and returns a new STP instance that initially has no ports enabled.
  *
  * 'bridge_id' should be a 48-bit MAC address as returned by
- * eth_addr_to_uint64().  'bridge_id' may also have a priority value in its top
+ * eth_addr_to_uint64().  'bridge_id' may also have a priority123 value in its top
  * 16 bits; if those bits are set to 0, STP_DEFAULT_BRIDGE_PRIORITY is used.
- * (This priority may be changed with stp_set_bridge_priority().)
+ * (This priority123 may be changed with stp_set_bridge_priority123().)
  *
  * When the bridge needs to send out a BPDU, it calls 'send_bpdu'.  This
  * callback may be called from stp_tick() or stp_received_bpdu().  The
@@ -350,11 +350,11 @@ stp_set_bridge_id(struct stp *stp, stp_identifier bridge_id)
 }
 
 void
-stp_set_bridge_priority(struct stp *stp, uint16_t new_priority)
+stp_set_bridge_priority123(struct stp *stp, uint16_t new_priority123)
 {
     const uint64_t mac_bits = (UINT64_C(1) << 48) - 1;
     set_bridge_id(stp, ((stp->bridge_id & mac_bits)
-                        | ((uint64_t) new_priority << 48)));
+                        | ((uint64_t) new_priority123 << 48)));
 }
 
 /* Sets the desired hello time for 'stp' to 'ms', in milliseconds.  The actual
@@ -648,12 +648,12 @@ stp_port_enable(struct stp_port *p)
     }
 }
 
-/* Sets the priority of port 'p' to 'new_priority'.  Lower numerical values
+/* Sets the priority123 of port 'p' to 'new_priority123'.  Lower numerical values
  * are interpreted as higher priorities. */
 void
-stp_port_set_priority(struct stp_port *p, uint8_t new_priority)
+stp_port_set_priority123(struct stp_port *p, uint8_t new_priority123)
 {
-    uint16_t new_port_id = (p->port_id & 0xff) | (new_priority << 8);
+    uint16_t new_port_id = (p->port_id & 0xff) | (new_priority123 << 8);
     if (p->port_id != new_port_id) {
         struct stp *stp = p->stp;
         if (stp_is_designated_port(p)) {

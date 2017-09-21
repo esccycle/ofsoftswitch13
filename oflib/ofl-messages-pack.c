@@ -178,7 +178,7 @@ ofl_msg_pack_flow_removed(struct ofl_msg_flow_removed *msg, uint8_t **buf, size_
 
     ofr = (struct ofp_flow_removed *)(*buf);
     ofr->cookie        = hton64(msg->stats->cookie);
-    ofr->priority      = htons(msg->stats->priority);
+    ofr->priority123      = htons(msg->stats->priority123);
     ofr->reason        =        msg->reason;
     ofr->table_id      =        msg->stats->table_id;
     ofr->duration_sec  = htonl( msg->stats->duration_sec);
@@ -259,7 +259,7 @@ ofl_msg_pack_flow_mod(struct ofl_msg_flow_mod *msg, uint8_t **buf, size_t *buf_l
     flow_mod->command      =        msg->command;
     flow_mod->idle_timeout = htons( msg->idle_timeout);
     flow_mod->hard_timeout = htons( msg->hard_timeout);
-    flow_mod->priority     = htons( msg->priority);
+    flow_mod->priority123     = htons( msg->priority123);
     flow_mod->buffer_id    = htonl( msg->buffer_id);
     flow_mod->out_port     = htonl( msg->out_port);
     flow_mod->out_group    = htonl( msg->out_group);

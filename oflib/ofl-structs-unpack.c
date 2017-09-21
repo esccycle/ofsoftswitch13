@@ -518,7 +518,7 @@ ofl_structs_flow_stats_unpack(struct ofp_flow_stats *src, uint8_t *buf, size_t *
     s->table_id =             src->table_id;
     s->duration_sec =  ntohl( src->duration_sec);
     s->duration_nsec = ntohl( src->duration_nsec);
-    s->priority =      ntohs( src->priority);
+    s->priority123 =      ntohs( src->priority123);
     s->idle_timeout =  ntohs( src->idle_timeout);
     s->hard_timeout =  ntohs( src->hard_timeout);
     s->flags        =  ntohs( src->flags);

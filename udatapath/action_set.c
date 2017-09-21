@@ -65,7 +65,7 @@ struct action_set_entry {
 
 
 
-/* Returns the priority of the action it should be executed in
+/* Returns the priority123 of the action it should be executed in
  * according to the spec. Note, that the actions are already
  * stored in this order.
  */

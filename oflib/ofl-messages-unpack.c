@@ -303,7 +303,7 @@ ofl_msg_unpack_flow_removed(struct ofp_header *src,uint8_t *buf, size_t *len, st
     dr->stats->table_id         =        sr->table_id;
     dr->stats->duration_sec     = ntohl( sr->duration_sec);
     dr->stats->duration_nsec    = ntohl( sr->duration_nsec);
-    dr->stats->priority         = ntohs(sr->priority);
+    dr->stats->priority123         = ntohs(sr->priority123);
     dr->stats->idle_timeout     = ntohs( sr->idle_timeout);
     dr->stats->hard_timeout     = 0;
     dr->stats->cookie           = ntoh64(sr->cookie);
@@ -463,7 +463,7 @@ ofl_msg_unpack_flow_mod(struct ofp_header *src,uint8_t* buf, size_t *len, struct
     dm->command =             (enum ofp_flow_mod_command)sm->command;
     dm->idle_timeout = ntohs( sm->idle_timeout);
     dm->hard_timeout = ntohs( sm->hard_timeout);
-    dm->priority =     ntohs( sm->priority);
+    dm->priority123 =     ntohs( sm->priority123);
     dm->buffer_id =    ntohl( sm->buffer_id);
     dm->out_port =     ntohl( sm->out_port);
     dm->out_group =    ntohl( sm->out_group);

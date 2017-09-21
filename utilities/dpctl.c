@@ -605,7 +605,7 @@ flow_mod(struct vconn *vconn, int argc, char *argv[]) {
              .command = OFPFC_ADD,
              .idle_timeout = OFP_FLOW_PERMANENT,
              .hard_timeout = OFP_FLOW_PERMANENT,
-             .priority = OFP_DEFAULT_PRIORITY,
+             .priority123 = OFP_DEFAULT_PRIORITY,
              .buffer_id = 0xffffffff,
              .out_port = OFPP_ANY,
              .out_group = OFPG_ANY,
@@ -2213,7 +2213,7 @@ parse_flow_mod_args(char *str, struct ofl_msg_flow_mod *req) {
             continue;
         }
         if (strncmp(token, FLOW_MOD_PRIO KEY_VAL, strlen(FLOW_MOD_PRIO KEY_VAL)) == 0) {
-            if (sscanf(token, FLOW_MOD_PRIO KEY_VAL "%"SCNu16"", &(req->priority)) != 1) {
+            if (sscanf(token, FLOW_MOD_PRIO KEY_VAL "%"SCNu16"", &(req->priority123)) != 1) {
                 ofp_fatal(0, "Error parsing %s: %s.", FLOW_MOD_PRIO, token);
             }
             continue;

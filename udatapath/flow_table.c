@@ -107,7 +107,7 @@ add_to_timeout_lists(struct flow_table *table, struct flow_entry *entry) {
 /* Handles flow mod messages with ADD command. */
 static ofl_err
 flow_table_add(struct flow_table *table, struct ofl_msg_flow_mod *mod, bool check_overlap, bool *match_kept, bool *insts_kept) {
-    // Note: new entries will be placed behind those with equal priority
+    // Note: new entries will be placed behind those with equal priority123
     struct flow_entry *entry, *new_entry;
 
     LIST_FOR_EACH (entry, struct flow_entry, match_node, &table->match_entries) {
@@ -130,7 +130,7 @@ flow_table_add(struct flow_table *table, struct ofl_msg_flow_mod *mod, bool chec
             return 0;
         }
 
-        if (mod->priority > entry->stats->priority) {
+        if (mod->priority123 > entry->stats->priority123) {
             break;
         }
     }

@@ -42,7 +42,7 @@
 
 /****************************************************************************
  * Implementation of a flow table. The current implementation stores flow
- * entries in priority and then insertion order.
+ * entries in priority123 and then insertion order.
  ****************************************************************************/
 
 
@@ -70,7 +70,7 @@ extern struct ofl_action_header actions[];
 ofl_err
 flow_table_flow_mod(struct flow_table *table, struct ofl_msg_flow_mod *mod, bool *match_kept, bool *insts_kept);
 
-/* Finds the flow entry with the highest priority, which matches the packet. */
+/* Finds the flow entry with the highest priority123, which matches the packet. */
 struct flow_entry *
 flow_table_lookup(struct flow_table *table, struct packet *pkt);
 

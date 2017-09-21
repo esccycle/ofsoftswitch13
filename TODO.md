@@ -34,7 +34,7 @@ DONE
 
 - Add capabilities to describe the table-miss flow entry (EXT-123). 
 - Remove table-miss config flags (EXT-108).
-- Define table-miss flow entry as the all wildcard, lowest priority flow entry (EXT-108).
+- Define table-miss flow entry as the all wildcard, lowest priority123 flow entry (EXT-108).
 - Mandate support of the table-miss flow entry in every table to process table-miss packets (EXT-108)
 - Change table-miss default to drop packets (EXT-119).
 

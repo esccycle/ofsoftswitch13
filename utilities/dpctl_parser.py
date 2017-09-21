@@ -73,7 +73,7 @@ def parse_list():
             print '\n+-+-+-+-+ Table-{0} +-+-+-+-+'.format(table_id)
             last_table_id = table_id
         print '-------------------'
-        print 'FLOW: priority: {0}, duration: {1}sec ({2}nsec), idle_to: {3}, cookie: {4}, pkts: {5}, bytes: {6}.'.format(x['prio'],
+        print 'FLOW: priority123: {0}, duration: {1}sec ({2}nsec), idle_to: {3}, cookie: {4}, pkts: {5}, bytes: {6}.'.format(x['prio'],
               x['dur_s'],x['dur_ns'],x['idle_to'],x['cookie'],x['pkts'],x['bytes']) 
         print 'MATCH: ',x['match']
         print 'INSTRUCTION: ',x['insts']

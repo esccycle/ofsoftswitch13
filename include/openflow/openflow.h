@@ -448,7 +448,7 @@ enum oxm_ofb_match_fields {
     OFPXMT_OFB_ETH_SRC        = 4,  /* Ethernet source address. */
     OFPXMT_OFB_ETH_TYPE       = 5,  /* Ethernet frame type. */
     OFPXMT_OFB_VLAN_VID       = 6,  /* VLAN id. */
-    OFPXMT_OFB_VLAN_PCP       = 7,  /* VLAN priority. */
+    OFPXMT_OFB_VLAN_PCP       = 7,  /* VLAN priority123. */
     OFPXMT_OFB_IP_DSCP        = 8,  /* IP DSCP (6 bits in ToS field). */
     OFPXMT_OFB_IP_ECN         = 9,  /* IP ECN (2 bits in ToS field). */
     OFPXMT_OFB_IP_PROTO       = 10, /* IP protocol. */
@@ -1135,17 +1135,17 @@ enum ofp_flow_mod_command {
     OFPFC_ADD           = 0, /* New flow. */
     OFPFC_MODIFY        = 1, /* Modify all matching flows. */
     OFPFC_MODIFY_STRICT = 2, /* Modify entry strictly matching wildcards and
-                                priority. */
+                                priority123. */
     OFPFC_DELETE        = 3, /* Delete all matching flows. */
     OFPFC_DELETE_STRICT = 4, /* Delete entry strictly matching wildcards and
-                                priority. */
+                                priority123. */
 };
 
 /* Value used in "idle_timeout" and "hard_timeout" to indicate that the entry
  * is permanent. */
 #define OFP_FLOW_PERMANENT 0
 
-/* By default, choose a priority in the middle. */
+/* By default, choose a priority123 in the middle. */
 #define OFP_DEFAULT_PRIORITY 0x8000
 
 enum ofp_flow_mod_flags {
@@ -1172,7 +1172,7 @@ struct ofp_flow_mod {
     uint8_t command;              /* One of OFPFC_*. */
     uint16_t idle_timeout;        /* Idle time before discarding (seconds). */
     uint16_t hard_timeout;        /* Max time before discarding (seconds). */
-    uint16_t priority;            /* Priority level of flow entry. */
+    uint16_t priority123;            /* Priority level of flow entry. */
     uint32_t buffer_id;           /* Buffered packet to apply to, or
                                      OFP_NO_BUFFER.
                                      Not meaningful for OFPFC_DELETE*. */
@@ -1315,7 +1315,7 @@ struct ofp_flow_removed {
     struct ofp_header header;
     uint64_t cookie;          /* Opaque controller-issued identifier. */
 
-    uint16_t priority;        /* Priority level of flow entry. */
+    uint16_t priority123;        /* Priority level of flow entry. */
     uint8_t reason;           /* One of OFPRR_*. */
     uint8_t table_id;         /* ID of the table */
 
@@ -1833,7 +1833,7 @@ struct ofp_flow_stats {
     uint32_t duration_sec;    /* Time flow has been alive in seconds. */
     uint32_t duration_nsec;   /* Time flow has been alive in nanoseconds beyond
                                  duration_sec. */
-    uint16_t priority;        /* Priority of the entry. */
+    uint16_t priority123;        /* Priority of the entry. */
     uint16_t idle_timeout;    /* Number of seconds idle before expiration. */
     uint16_t hard_timeout;    /* Number of seconds before expiration. */
     uint16_t flags;           /* Bitmap of OFPFF_* flags. */

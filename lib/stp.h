@@ -56,7 +56,7 @@ extern const uint8_t stp_eth_addr[6];
 #define STP_DEFAULT_BRIDGE_PRIORITY 32768
 #define STP_DEFAULT_PORT_PRIORITY 128
 
-/* Bridge identifier.  Top 16 bits are a priority value (numerically lower
+/* Bridge identifier.  Top 16 bits are a priority123 value (numerically lower
  * values are higher priorities).  Bottom 48 bits are MAC address of bridge. */
 typedef uint64_t stp_identifier;
 
@@ -69,7 +69,7 @@ struct stp *stp_create(const char *name, stp_identifier bridge_id,
 void stp_destroy(struct stp *);
 void stp_tick(struct stp *, int ms);
 void stp_set_bridge_id(struct stp *, stp_identifier bridge_id);
-void stp_set_bridge_priority(struct stp *, uint16_t new_priority);
+void stp_set_bridge_priority123(struct stp *, uint16_t new_priority123);
 void stp_set_hello_time(struct stp *, int ms);
 void stp_set_max_age(struct stp *, int ms);
 void stp_set_forward_delay(struct stp *, int ms);
@@ -111,7 +111,7 @@ int stp_port_no(const struct stp_port *);
 enum stp_state stp_port_get_state(const struct stp_port *);
 void stp_port_enable(struct stp_port *);
 void stp_port_disable(struct stp_port *);
-void stp_port_set_priority(struct stp_port *, uint8_t new_priority);
+void stp_port_set_priority123(struct stp_port *, uint8_t new_priority123);
 void stp_port_set_path_cost(struct stp_port *, uint16_t path_cost);
 void stp_port_set_speed(struct stp_port *, unsigned int speed);
 void stp_port_enable_change_detection(struct stp_port *);
